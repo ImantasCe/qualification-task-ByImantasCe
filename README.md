@@ -1,3 +1,4 @@
+# Dropdown live: https://qualifiction-app.herokuapp.com/
 # Mygom.Tech qualification task:
 
 Create dropdown component from scratch using React and Typescript
