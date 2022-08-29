@@ -1,4 +1,4 @@
-import { MouseEvent, SetStateAction, useEffect, useState } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 import styles from "./Dropdown.module.scss";
 import cx from "classnames";
 import ArrowDown from "./../../assets/icons/ArrowDown";
@@ -12,7 +12,8 @@ type Props = {
 
 export const Dropdown = ({ placeHolder, options, isMultiSelect }: Props) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<any | null>(isMultiSelect ? [] : null);
+  const [selectedOption, setSelectedOption] =
+    useState<React.ComponentState | null>(isMultiSelect ? [] : null);
 
   useEffect(() => {
     const handler = () => setShowOptions(false);
@@ -88,7 +89,9 @@ export const Dropdown = ({ placeHolder, options, isMultiSelect }: Props) => {
     if (isMultiSelect) {
       return (
         selectedOption.filter(
-          (o: { value: string }) => o.value === option.value).length > 0);
+          (o: { value: string }) => o.value === option.value
+        ).length > 0
+      );
     }
     if (!selectedOption) {
       return false;
