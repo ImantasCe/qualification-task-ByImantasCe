@@ -1,0 +1,20 @@
+.dropdownTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .dropdownTagItem {
+      align-items: center;
+      background-color: rgba(221, 221, 221, 0.561);
+      display: flex;
+
+      .dropdownTagClose {
+        align-items: center;
+        display: flex;
+
+        &:hover {
+          background-color: rgba(255, 0, 0, 0.339);
+        }
+      }
+    }
+  }

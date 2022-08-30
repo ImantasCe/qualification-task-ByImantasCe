@@ -3,6 +3,7 @@ import styles from "./Dropdown.module.scss";
 import cx from "classnames";
 import ArrowDown from "./../../assets/icons/ArrowDown";
 import CloseIcon from "./../../assets/icons/CloseIcon";
+import { Tag } from "../Tag/Tag";
 
 type Props = {
   placeHolder: string;
@@ -27,30 +28,6 @@ export const Dropdown = ({ placeHolder, options, isMultiSelect }: Props) => {
   const handleDropdownClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     setShowOptions((prevState) => !prevState);
-  };
-
-  const getValue = () => {
-    if (!selectedOption || selectedOption.length === 0) {
-      return placeHolder;
-    }
-    if (isMultiSelect) {
-      return (
-        <div className={styles.dropdownTags}>
-          {selectedOption.map((option: { id: string; value: string }) => (
-            <div key={option.id} className={styles.dropdownTagItem}>
-              {option.value}
-              <span
-                onClick={(e) => onTagRemove(e, option)}
-                className={styles.dropdownTagClose}
-              >
-                <CloseIcon />
-              </span>
-            </div>
-          ))}
-        </div>
-      );
-    }
-    return selectedOption.value;
   };
 
   const removeOption = (option: { id: string; value: string }) => {
@@ -97,6 +74,18 @@ export const Dropdown = ({ placeHolder, options, isMultiSelect }: Props) => {
       return false;
     }
     return selectedOption.value === option.value;
+  };
+
+  const getValue = () => {
+    if (!selectedOption || selectedOption.length === 0) {
+      return placeHolder;
+    }
+    if (isMultiSelect) {
+      return (
+        <Tag onTagRemove={onTagRemove} selectedOption={selectedOption}/>
+      );
+    }
+    return selectedOption.value;
   };
 
   return (
