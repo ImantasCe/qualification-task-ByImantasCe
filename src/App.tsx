@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "./components/Dropdown/Dropdown";
+import Dropdown from "./components/Dropdown";
 import { listOfOptions } from "./data/listOfOptions";
 
 const App = () => {

@@ -24,3 +24,5 @@ export const Tag = ({selectedOption, onTagRemove}: Props) => {
     </div>
   );
 };
+
+export default Tag;

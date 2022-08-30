@@ -1,9 +1,8 @@
 import React, { MouseEvent, useEffect, useState } from "react";
 import styles from "./Dropdown.module.scss";
 import cx from "classnames";
-import ArrowDown from "./../../assets/icons/ArrowDown";
-import CloseIcon from "./../../assets/icons/CloseIcon";
-import { Tag } from "../Tag/Tag";
+import ArrowDown from '../../assets/icons/ArrowDown';
+import Tag from '../Tag';
 
 type Props = {
   placeHolder: string;
